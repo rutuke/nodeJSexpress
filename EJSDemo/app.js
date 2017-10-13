@@ -9,6 +9,15 @@ app.get("/fallinlovewith/:thing", function(req,res){
     res.render("love.ejs", {thingVar: thing});
 });
 
+app.get("/posts", function(req,res){
+   var posts = [
+       {title: "Post 1", author: "Me"},
+       {title: "Post 2", author: "Me1"},
+       {title: "Post 3", author: "Me2"}
+       ];
+    res.render("posts.ejs", {posts: posts})
+});
+
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Server is listening!"); 
 });
