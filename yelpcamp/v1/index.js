@@ -6,14 +6,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 
 var campgrounds = [
-       {name: "Wicklow Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
-       {name: "Dublin Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
-       {name: "Wexford Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
-       {name: "Cork Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
-       {name: "Limerick Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
-       {name: "Sligo Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
-       {name: "Kerry Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
-       {name: "Meath Mountains", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Glendasan_River%2C_Wicklow_Mountains.jpg"},
+       {name: "Wicklow Mountains", image: "http://innovationalsteps.org/uploads/3/4/7/8/34786860/5082015_orig.jpg"},
+       {name: "Wexford Mountains", image: "http://innovationalsteps.org/uploads/3/4/7/8/34786860/5082015_orig.jpg"},
+       {name: "Cork Mountains", image: "http://innovationalsteps.org/uploads/3/4/7/8/34786860/5082015_orig.jpg"},
     ]; 
        
 app.get("/", function(req,res){
