@@ -10,12 +10,17 @@ app.set("view engine", "ejs");
 //SCHEMA SETUP
 var campgroundSchema = new mongoose.Schema({
    name: String,
-   image: String
+   image: String,
+   description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-// Campground.create({name: "Wicklow Mountains", image: "http://innovationalsteps.org/uploads/3/4/7/8/34786860/5082015_orig.jpg"}, function(err,campground){
+// Campground.create({
+//     name: "Wicklow Mountains", 
+//     image: "http://innovationalsteps.org/uploads/3/4/7/8/34786860/5082015_orig.jpg",
+//     description: "This is a huge hill, no bathrooms. No water. Beautiful hill."
+// }, function(err,campground){
 //   if(err){
 //       console.log(err);
 //   } else {
@@ -34,7 +39,7 @@ app.get("/campgrounds", function(req,res){
         if(err){
             console.log(err);
         } else {
-            res.render("campgrounds", {campgrounds: allCampgrounds});
+            res.render("index", {campgrounds: allCampgrounds});
         }
     });
     //render them all
@@ -47,7 +52,8 @@ app.post("/campgrounds", function(req,res){
     // redirect back to campgrounder page
     var name = req.body.name;
     var image = req.body.image;
-    var newCamp = {name: name, image: image}
+    var desc = req.body.description;
+    var newCamp = {name: name, image: image, description: desc}
     // Create new campground and save to DB
     Campground.create(newCamp, function(err, allCampgrounds){
         if(err){
@@ -61,6 +67,18 @@ app.post("/campgrounds", function(req,res){
 
 app.get("/campgrounds/new", function(req,res){
    res.render("new.ejs"); 
+});
+
+app.get("/campgrounds/:id", function(req,res){
+    // find campground with given ID
+    // render more information about that ID
+    Campground.findById(req.params.id, function(err,foundCampground){
+       if(err){
+           console.log(err);
+       } else {
+           res.render("show", {campground: foundCampground});
+       }
+    });
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
