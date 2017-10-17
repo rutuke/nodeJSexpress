@@ -81,6 +81,7 @@ app.get("/blogs/:id/edit", function(req,res){
         }
     })
 });
+
 // update route
 app.put("/blogs/:id", function(req,res){
     req.body.blog.body = req.sanitize(req.body.blog.body);
