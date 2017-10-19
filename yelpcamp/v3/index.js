@@ -8,20 +8,6 @@ mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 
-
-// Campground.create({
-//     name: "Wicklow Mountains", 
-//     image: "http://innovationalsteps.org/uploads/3/4/7/8/34786860/5082015_orig.jpg",
-//     description: "This is a huge hill, no bathrooms. No water. Beautiful hill."
-// }, function(err,campground){
-//   if(err){
-//       console.log(err);
-//   } else {
-//       console.log("Newly Created Campground");
-//       console.log(campground);
-//   }
-// });
-
 app.get("/", function(req,res){
    res.render("landing"); 
 });
