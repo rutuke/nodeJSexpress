@@ -1,4 +1,6 @@
 var mongoose = require("mongoose");
+
+
 mongoose.connect("mongodb://localhost/references_demo");
 
 // POST = title, content
