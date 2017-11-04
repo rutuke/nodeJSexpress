@@ -14,12 +14,15 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 seedDB();
+
 // PASSPORT CONFIG
+
 app.use(require("express-session")({
     secret: "Hello World",
     resave: false,
     saveUninitialize: false
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
